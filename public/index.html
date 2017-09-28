@@ -6,19 +6,21 @@
     <script type="text/x-handlebars-template" id="type-list-template">
       <a href="/type/{{ monType }}"><li>{{ monType }}</li></a>
     </script>
+    <script type="text/x-handlebars-template" id="nav-item-template">
+      <li class="nav-item"><a href="{{ route }}">{{ name }}</a></li>
+    </script>
   </head>
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/the-mons">All</a></li>
-        </ul>
+        <ul></ul>
       </nav>
       <h1>Pokédex</h1>
     </header>
-    <form class="" action="index.html" method="post"></form>
+    <form>
+      <input type="text" name="" placeholder="Search for pokémon by name" />
+      <input type="submit" value="Submit" />
+    </form>
     <table></table>
     <aside>
       <ul id="type-list"></ul>
@@ -26,5 +28,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" charset="utf-8"></script>
+    <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
   </body>
 </html>
