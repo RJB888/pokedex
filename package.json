@@ -1,0 +1,24 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "It's a pokedex",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefellows/pokedex.git"
+  },
+  "author": "seattle-301d24",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codefellows/pokedex/issues"
+  },
+  "homepage": "https://github.com/codefellows/pokedex#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.0",
+    "pg": "^7.3.0"
+  }
+}
