@@ -9,6 +9,9 @@
     <script type="text/x-handlebars-template" id="nav-item-template">
       <li class="nav-item"><a href="{{ route }}">{{ name }}</a></li>
     </script>
+    <script type="text/x-handlebars-template" id="table-row-template">
+      <tr><td>{{ id }}</td><td><img src="{{ sprites.front }}" /></td><td>{{ name }}</td><td>{{ types }}</td></tr>
+    </script>
   </head>
   <body>
     <header>
@@ -21,7 +24,7 @@
       <input type="text" name="" placeholder="Search for pokémon by name" />
       <input type="submit" value="Submit" />
     </form>
-    <table></table>
+    <table id="results"></table>
     <aside>
       <ul id="type-list"></ul>
     </aside>
@@ -29,6 +32,7 @@
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" charset="utf-8"></script>
     <script src="/scripts/controllers/homeController.js" charset="utf-8"></script>
+    <script src="/scripts/views/tableView.js"></script>
     <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
   </body>
 </html>
