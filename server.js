@@ -4,6 +4,7 @@ const EXPRESS = require('express');
 const PG = require('pg');
 const PARSER = require('body-parser');
 const PROXY = require('express-request-proxy');
+const HTTP = require('http');
 
 const APP = EXPRESS();
 const CON_STRING = process.env.DATABASE_URL || 'postgres://localhost:5432/pokedex';
@@ -16,6 +17,15 @@ APP.use(PARSER.urlencoded({ extended: true }));
 APP.use(EXPRESS.static('./public'));
 
 APP.post('/api/new-pokemon', (request, response) => {
+  console.log(request.body)
+  CLIENT.query(`
+    INSERT INTO pokemon
+    (data)
+    VALUES
+    ($1);
+  `, [request.body], function(err){
+    if (err) console.error(err);
+  })
 })
 
 APP.get('/api/allPokemon', (request, response) => {
