@@ -21,3 +21,7 @@
 - For search results, they show up as 3 to a row, with each item having an image, the name, the id number, and the type of the mon
 - Stretch goal:
   - Pagination
+
+## Filling the database
+
+- When a user accesses our site for the first time, a request is sent to our server that will itself send a request to the pokemon API and attempt to fill our database with data.

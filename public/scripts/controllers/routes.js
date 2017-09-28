@@ -1,6 +1,6 @@
 'use strict';
 
-page('/', ()=>{});
+page('/', app.homeController.index);
 page('/about', ()=>{});
 page('/mons', ()=>{});
 page('/mons/:id', ()=>{});
