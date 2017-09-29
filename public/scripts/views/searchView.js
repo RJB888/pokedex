@@ -4,7 +4,16 @@ var app = app || {};
 
 (function(module){
   let $searchbar = $('.searchbar');
-  $searchbar.on('keypress', function(){
-    console.log($searchbar.val());
+  $searchbar.on('keyup', function(){
+    let searchString = $searchbar.val().trim();
+    // take the searchString value and compare it to the name value of each pokemon.
+    let filteredIn = $('tr').toArray().filter(function(row){
+      return row.id.includes(searchString);
+    });
+    let filteredOut = $('tr').toArray().filter(function(row){
+      return !row.id.includes(searchString);
+    });
+    $(filteredIn).show();
+    $(filteredOut).hide();
   })
 })(app)
