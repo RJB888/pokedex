@@ -35,3 +35,8 @@
   - Retrieve all pokémon characters from the database
   - Store them in an array
   - Store them as objects with properties in my array.
+
+## Ordering the list
+
+- We want the list of characters to be ordered by ID.
+- Before we render the table rows, sort the array of characters by their IDs

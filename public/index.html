@@ -10,7 +10,11 @@
       <li class="nav-item"><a href="{{ route }}">{{ name }}</a></li>
     </script>
     <script type="text/x-handlebars-template" id="table-row-template">
-      <tr id="{{ name }}"><td>{{ id }}</td><td><img src="{{ sprites.front }}" /></td><td>{{ name }}</td><td>{{ types }}</td></tr>
+      <tr id="{{ name }}">
+        <td>{{ id }}</td>
+        <td><img src="{{ sprites.front }}" /></td>
+        <td>{{ name }}</td><td>{{ types }}</td>
+      </tr>
     </script>
   </head>
   <body>
