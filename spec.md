@@ -18,7 +18,7 @@
   - About page
   - Home Page
   - All the mons
-- For search results, they show up as 3 to a row, with each item having an image, the name, the id number, and the type of the mon
+- One row per character in our table, with their ID, picture, name, and types
 - Stretch goal:
   - Pagination
 
