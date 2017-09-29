@@ -5,6 +5,7 @@ const PG = require('pg');
 const PARSER = require('body-parser');
 const PROXY = require('express-request-proxy');
 const HTTP = require('http');
+const REQUEST_LIB = require('request');
 
 const APP = EXPRESS();
 const CON_STRING = process.env.DATABASE_URL || 'postgres://localhost:5432/pokedex';
@@ -27,6 +28,30 @@ APP.post('/api/new-pokemon', (request, response) => {
     if (err) console.error(err);
   })
 })
+
+// APP.get('/api/test', (request, response) => {
+//   console.log('Got a request');
+//   for (let i = 1; i < 152; i++) {
+//     console.log(`Sending a request for pokemon id: ${ i }`);
+//     request_lib(`https://pokeapi.co/api/v2/pokemon/${ i }`, function(err, response, body){
+//       if (!body.includes('gateway time-out error')) {
+//         body = JSON.parse(body)
+//         let wanted = {
+//           name: body.name,
+//           id: body.id,
+//           sprites: {
+//             front: body.sprites.front_default,
+//             back: body.sprites.back_default
+//           },
+//           types: body.types.map(type => type.type.name)
+//         };
+//         CLIENT.query(`INSERT INTO pokemon (data) VALUES ($1)`, [wanted])
+//           .then(() => { console.log(`${body.name} inserted.`) })
+//       }
+//     })
+//   }
+//   response.send('Requests sent')
+// })
 
 APP.get('/api/allPokemon', (request, response) => {
   CLIENT
@@ -51,4 +76,27 @@ CLIENT.query(`
     id SERIAL PRIMARY KEY,
     data VARCHAR(500)
   );
-`);
+`).then(() => {
+  CLIENT.query(`SELECT * FROM pokemon;`).then((result) => {
+    if (!result.rowCount) {
+      for (let i = 1; i < 152; i++) {
+        REQUEST_LIB(`https://pokeapi.co/api/v2/pokemon/${ i }`, function(err, response, body){
+          console.log(`Processing response for pokemon with ID ${ i }`);
+          if (!body.includes('504: Gateway time-out')) {
+            body = JSON.parse(body);
+            let wanted = {};
+            wanted.name = body.name;
+            wanted.id = body.id;
+            wanted.sprites = {
+              front: body.sprites.front_default,
+              back: body.sprites.back_default
+            }
+            wanted.types = body.types.map(type => type.type.name)
+            CLIENT.query(`INSERT INTO pokemon (data) VALUES ($1)`, [wanted]);
+          }
+        })
+      }
+    }
+  });
+}
+);
