@@ -16,10 +16,10 @@ APP.use(PARSER.json());
 APP.use(PARSER.urlencoded({ extended: true }));
 APP.use(EXPRESS.static('./public'));
 
-APP.post('/api/new-pokemon', (request, response) => {
+APP.post('/api/new-pokémon', (request, response) => {
   console.log(request.body)
   CLIENT.query(`
-    INSERT INTO pokemon
+    INSERT INTO pokémon
     (data)
     VALUES
     ($1);
@@ -28,9 +28,9 @@ APP.post('/api/new-pokemon', (request, response) => {
   })
 })
 
-APP.get('/api/allPokemon', (request, response) => {
+APP.get('/api/allpokémon', (request, response) => {
   CLIENT
-    .query(`SELECT * FROM pokemon`)
+    .query(`SELECT * FROM pokémon`)
     .then(function(result) {
       response.send(result);
     })
