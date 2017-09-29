@@ -5,7 +5,9 @@
     <title>Pokédex</title>
     <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet" />
     <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
     <link rel="stylesheet" href="styles/tablerows.css" />
+    <link rel="stylesheet" href="styles/aside.css" />
     <link rel="stylesheet" href="styles/types.css" />
     <script type="text/x-handlebars-template" id="type-list-template">
       <a href="/type/{{ monType }}"><li>{{ monType }}</li></a>
@@ -39,8 +41,20 @@
       <input type="submit" value="Submit" />
     </form>
     <table id="results"></table>
-    <aside>
-      <ul id="type-list"></ul>
+    <aside id="detail">
+      <ul>
+        <li class="sprites">
+          <img src="" alt="">
+        </li>
+        <li class="sprites">
+          <img src="" alt="">
+        </li>
+      </ul>
+      <ul>
+        <li id="mon-id"></li>
+        <li id="mon-name"></li>
+        <li id="mon-type"></li>
+      </ul>
     </aside>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js" charset="utf-8"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
@@ -49,6 +63,7 @@
     <script src="/scripts/controllers/homeController.js" charset="utf-8"></script>
     <script src="/scripts/views/tableView.js"></script>
     <script src="/scripts/views/searchView.js"></script>
+    <script src="/scripts/views/detailView.js"></script>
     <script src="/scripts/controllers/routes.js" charset="utf-8"></script>
   </body>
 </html>

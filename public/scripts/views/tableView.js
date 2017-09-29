@@ -15,5 +15,16 @@ var app = app || {};
     $('#results').append(
 			app.allTheMons.map(oneCharacter => render(oneCharacter))
 		);
+    $('.anything').on('click', function(){
+      let idVal = $(this).find('.id span').text();
+      let theMon = app.allTheMons.filter(function(item){
+        return parseInt(idVal) === item.id;
+      })[0]
+      $('.sprites img').eq(0).attr('src', theMon.sprites.front);
+      $('.sprites img').eq(1).attr('src', theMon.sprites.back);
+      $('#mon-id').text(`id: ${theMon.id}`);
+      $('#mon-name').text(`name: ${theMon.name}`);
+      $('#mon-type').text(`types: ${theMon.types}`);
+    })
   });
 })(app)

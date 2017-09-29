@@ -1,0 +1,8 @@
+#detail {
+  position: fixed;
+  right: 10vw;
+  top: 10vh;
+  min-height: 300px;
+  min-width: 300px;
+  border: thin solid black;
+}
