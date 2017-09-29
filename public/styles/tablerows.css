@@ -1,0 +1,32 @@
+#results {
+    border: 4px groove #BBB;
+    border-radius: 10px;
+    padding: 0px 30px;
+    box-shadow: 5px 5px 5px #888888;
+}
+tr {
+  border: solid thin black;
+}
+.fake-line {
+    height: 2px;
+    background-color: black;
+}
+.id {
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG);
+    background-size: contain;
+    width: 100px;
+    background-repeat: no-repeat;
+    font-size: 1.6em;
+    text-align: center;
+    color: white;
+    font-family: 'Vast Shadow', cursive;
+}
+.id span {
+  position: relative;
+  top: -28px;
+}
+.name {
+    font-family: arial;
+    font-size: 1.5em;
+    text-transform: capitalize;
+}

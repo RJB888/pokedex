@@ -3,6 +3,7 @@
 var app = app || {};
 
 (function(module){
+
   let temp = $('#table-row-template').html();
   let render = Handlebars.compile(temp);
   $.get('/api/allpokemon', result => {

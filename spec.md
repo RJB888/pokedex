@@ -40,3 +40,21 @@
 
 - We want the list of characters to be ordered by ID.
 - Before we render the table rows, sort the array of characters by their IDs
+
+## Add colors to our pokemon types
+
+- need to convert the individual "types" into some sort of HTML element that can be styled
+- need to harvest (i.e. steal) all the colors from the existing pokedex site
+- add those colors to CSS
+
+## Style the table
+
+- Increase the font size of the pokemon names -- done
+- Capitalize all the pokemon names -- done
+- Border on the table -- done
+- Make id numbers have background of pokeball, and change their font to be readable and more childish
+- Border around each row
+- More readable input field
+  - font size Increase
+- background color on the table row
+- add column headings

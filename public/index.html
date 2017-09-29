@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Pokédex</title>
+    <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/tablerows.css" />
+    <link rel="stylesheet" href="styles/types.css" />
     <script type="text/x-handlebars-template" id="type-list-template">
       <a href="/type/{{ monType }}"><li>{{ monType }}</li></a>
     </script>
@@ -10,11 +14,17 @@
       <li class="nav-item"><a href="{{ route }}">{{ name }}</a></li>
     </script>
     <script type="text/x-handlebars-template" id="table-row-template">
-      <tr id="{{ name }}">
-        <td>{{ id }}</td>
+      <tr id="{{ name }}" class="anything">
+        <td class="id"><span>{{ id }}</span></td>
         <td><img src="{{ sprites.front }}" /></td>
-        <td>{{ name }}</td><td>{{ types }}</td>
+        <td class="name">{{ name }}</td>
+        <td>
+          {{#each types}}
+          <div class="type {{ this }}">{{ this }}</div>
+          {{/each}}
+        </td>
       </tr>
+      <tr><td colspan="4" class="fake-line"></td></tr>
     </script>
   </head>
   <body>
